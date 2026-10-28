@@ -346,3 +346,51 @@ body > .section:not(:has(.footer-grid)) > .w-container > :is(.space-large, .spac
     border-radius: 999px;
   }
 }
+
+/* destination pages on phones: larger hero title ("Travel guide to Darjeeling") */
+@media screen and (max-width: 767px) {
+  .hero-title.locations { font-size: 7vw; line-height: 1.2; }
+  .hero-title.local { font-size: 9vw; line-height: 1.15; }
+  .hero-title-wrapper.local + .hero-title-wrapper.local h2.hero-title.local { font-size: 6vw; }
+}
+@media screen and (max-width: 767px) {
+  /* "Local experts for …" text: readable panel over the photo */
+  .section-15 div:has(> .heading-12) {
+    margin: 0 12px;
+    padding: 18px 16px;
+    border-radius: 16px;
+    background-color: #2a214099;
+  }
+}
+
+/* destination pages - "Top experiences in …" cards: equal height, taller photos, tidy text */
+.columns-12 { display: flex; flex-wrap: wrap; row-gap: 24px; }
+.columns-12::before, .columns-12::after { display: none; }
+.columns-12 > .box-column { display: flex; float: none; }
+.columns-12 > .box-column > a { display: flex; width: 100%; }
+.columns-12 .block-location {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 16px;
+  background-color: #fffffff2;
+  border: 1px solid #d5c4f78c;
+  box-shadow: 0 10px 24px -16px #4f359166;
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+.columns-12 a:hover .block-location { transform: translateY(-4px); box-shadow: 0 16px 30px -16px #4f359180; }
+.columns-12 :is(.div-block-24, .div-block-25, .div-block-26, .div-block-27) {
+  height: auto;
+  aspect-ratio: 4 / 3;
+  margin: 0;
+  border-radius: 0;
+}
+.columns-12 .block-location h4 { margin: 16px 16px 6px; }
+.columns-12 .box { text-align: center; padding: 0 16px 18px; line-height: 1.5; }
+@media screen and (max-width: 767px) {
+  .centered-on-mobile-small.small { font-size: 7vw; line-height: 1.2; }
+  .columns-12 { padding-left: 16px; padding-right: 16px; }
+  .columns-12 :is(.div-block-24, .div-block-25, .div-block-26, .div-block-27) { aspect-ratio: 16 / 10; }
+  .columns-12 .block-location { margin-bottom: 0; }
+}
