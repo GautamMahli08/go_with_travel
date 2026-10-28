@@ -315,3 +315,34 @@ body > .section:not(:has(.footer-grid)) > .w-container > :is(.space-large, .spac
 @media screen and (max-width: 767px) {
   .footer-grid + .space + .grid-12-columns { margin-top: 2rem; }
 }
+
+/* destination cards on phones: taller photo, caption band at the bottom, readable text */
+@media screen and (max-width: 767px) {
+  .contact-info.locations {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    min-height: 230px;
+    border-radius: 16px;
+    overflow: hidden;
+  }
+  .contact-info.locations .div-block-22 {
+    width: 100%;
+    padding: 14px 12px 12px;
+    background-image: linear-gradient(#0000, #000000b3 35%);
+  }
+  .contact-info.locations .location-header { margin: 0; font-size: 15px; line-height: 1.35; }
+  .contact-info.locations .location-header.city { font-size: 22px; line-height: 1.2; }
+  .contact-info.locations .location-header.small { font-size: 12px; line-height: 1.4; margin: 2px 0 6px; }
+  .contact-info.locations .location-header.address {
+    display: table;
+    margin: 0 auto;
+    font-size: 12px;
+    line-height: 1;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border: 1px solid #ffffffb3;
+    border-radius: 999px;
+  }
+}
