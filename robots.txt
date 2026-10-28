@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+Sitemap: http://www.tripconcierge.co/sitemap.xml
+
+Sitemap: https://www.tripconcierge.co/sitemap.xml

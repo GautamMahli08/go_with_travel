@@ -1,0 +1,317 @@
+/* LAVIGO "Lavender Himalaya" theme.
+   Loaded after the main Webflow stylesheet; only colours are changed, never layout.
+   Edit the values in :root to adjust the whole site. */
+
+:root {
+  --lavigo-lavender: #d5c4f7;   /* logo colour */
+  --lavigo-purple: #6c4bb6;     /* buttons & accents */
+  --lavigo-purple-dark: #4f3591;
+  --lavigo-plum: #2a2140;       /* text & dark bands */
+
+  /* original Webflow tokens, re-coloured */
+  --white: #f6f2fc;             /* page background */
+  --light-gray: #ece4f8;        /* cards, panels, menu */
+  --black: #2a2140;             /* main text */
+  --dark-gray: #2a2140;
+  --matte: #3b2e5a;             /* secondary buttons, lines */
+  --primary: #fbf8ff;           /* light text on dark / button circles */
+  --primary-20: #fbf8ff33;
+  --maroon: var(--lavigo-purple); /* main "explore" buttons */
+}
+
+.body {
+  background-color: var(--white);
+  background-image: linear-gradient(180deg, #f8f5fd 0%, #f1eafb 100%);
+  background-attachment: fixed;
+}
+
+::selection { background: var(--lavigo-lavender); color: var(--lavigo-plum); }
+
+/* navbar */
+.container-nav { background-color: #f6f2fcc7; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
+.container-nav.home { background-color: #fff0; backdrop-filter: none; -webkit-backdrop-filter: none; }
+.nav-link:hover, .nav-link.w--current:hover { color: var(--lavigo-purple); }
+.nav-link.w--current { color: var(--lavigo-purple-dark); }
+.bold-text.new { background-color: var(--lavigo-purple); color: #fff; }
+
+/* buttons */
+.button-with-circle-icon { border-color: var(--lavigo-purple); }
+.button-with-circle-icon:hover { background-color: var(--lavigo-purple-dark); }
+.contact-button, .submit-button { background-color: var(--lavigo-purple); border-color: var(--lavigo-purple); color: #fff; }
+.contact-button:hover, .submit-button:hover { background-color: var(--lavigo-purple-dark); color: #fff; }
+
+/* headings accents */
+.subheading { border-color: var(--lavigo-purple); }
+.subheading h6 { color: var(--lavigo-purple-dark); }
+a:hover { color: var(--lavigo-purple); }
+
+/* cards & panels */
+.block-location, .contact-us-wrapper.form { background-color: var(--light-gray); }
+.faq-dropdown-accordion { border-color: var(--lavigo-lavender); }
+.faq-dropdown-accordion:hover { background-color: #fff; }
+.faq-numbers-back { color: var(--lavigo-lavender); }
+.blog-image-wrapper, .about-card-image, .about-card-image-left, .about-card-image-right,
+.feature-image, .features-tab-image, .image-12 { box-shadow: 0 1.25rem 2.5rem -1rem #2a214040; }
+
+/* dark bands (destination "About" band) */
+.section-14 { background-image: linear-gradient(135deg, #2a2140, #3e2c66); }
+
+/* forms */
+.w-input, .w-select { background-color: #fff; border-color: var(--lavigo-lavender); }
+.w-input:focus, .w-select:focus { border-color: var(--lavigo-purple); }
+.field { color: var(--lavigo-plum); }
+
+/* footer card */
+.footer-background { background-color: var(--lavigo-plum); background-image: linear-gradient(135deg, #2a2140, #44306f); }
+.footer-grid, .footer-grid h4, .footer-grid h5, .footer-grid p, .footer-grid a { color: #f3eefb; }
+.footer-grid a:hover { color: var(--lavigo-lavender); }
+
+/* ---------- scroll clouds (driven by assets/lavigo-clouds.js) ---------- */
+/* z-index -1: clouds float over the page background but always BEHIND text, cards and images */
+.lavigo-clouds { position: fixed; inset: 0; z-index: -1; pointer-events: none; overflow: hidden; }
+.lavigo-cloud { position: absolute; top: 0; will-change: transform; }
+.lavigo-cloud img, .lavigo-hero-cloud img { display: block; width: 100%; height: auto; user-select: none; }
+/* brighter clouds with a soft lavender shadow so they read on the light background */
+.lavigo-cloud img { filter: brightness(1.08) drop-shadow(0 1.5rem 2.5rem rgba(108, 75, 182, 0.28)); }
+.lavigo-cloud-drift { animation: lavigo-drift 30s ease-in-out infinite alternate; }
+@keyframes lavigo-drift {
+  from { transform: translate3d(-6vw, 0, 0); }
+  to   { transform: translate3d(6vw, 0, 0); }
+}
+
+.lavigo-hero-clouds { position: absolute; left: 0; right: 0; bottom: -4%; height: 45%; pointer-events: none; overflow: visible; }
+.lavigo-hero-cloud { position: absolute; bottom: 0; width: 70vw; will-change: transform, opacity; }
+.lavigo-hero-cloud.left { left: -18vw; }
+.lavigo-hero-cloud.right { right: -18vw; }
+/* birds */
+.lavigo-birds { position: absolute; top: 0; left: 0; will-change: transform; }
+.lavigo-birds img { display: block; width: 100%; height: auto; }
+.lavigo-birds-fly { animation: lavigo-fly 50s linear infinite; }
+@keyframes lavigo-fly {
+  0%   { transform: translate3d(-30vw, 0, 0); }
+  25%  { transform: translate3d(20vw, -3vh, 0); }
+  50%  { transform: translate3d(60vw, 1vh, 0); }
+  75%  { transform: translate3d(95vw, -2vh, 0); }
+  100% { transform: translate3d(130vw, 0, 0); }
+}
+
+/* leaves */
+.lavigo-leaf { position: absolute; top: 0; will-change: transform; }
+.lavigo-leaf-fall { animation: lavigo-fall 20s linear infinite; }
+.lavigo-leaf img { display: block; width: 100%; height: auto; opacity: 0.85; animation: lavigo-spin 7s ease-in-out infinite alternate; }
+@keyframes lavigo-fall {
+  0%   { transform: translate3d(0, -15vh, 0); }
+  25%  { transform: translate3d(3vw, 20vh, 0); }
+  50%  { transform: translate3d(-2vw, 50vh, 0); }
+  75%  { transform: translate3d(4vw, 80vh, 0); }
+  100% { transform: translate3d(0, 115vh, 0); }
+}
+@keyframes lavigo-spin {
+  from { transform: rotate(-35deg); }
+  to   { transform: rotate(45deg); }
+}
+
+/* contact page suitcase */
+.lavigo-suitcase { display: block; width: 90px; height: auto; margin: 0 auto 1rem; animation: lavigo-bob 3.5s ease-in-out infinite; filter: drop-shadow(0 12px 14px rgba(42, 33, 64, 0.18)); }
+@keyframes lavigo-bob {
+  0%, 100% { transform: translateY(0) rotate(-3deg); }
+  50%      { transform: translateY(-10px) rotate(3deg); }
+}
+
+/* navbar CONTACT / PLAN YOUR TRIP: plain text, no background box */
+.link-block, .link-block-2, .link-block.home { background-color: transparent; }
+.bold-text.new, .bold-text.new.home { background-color: transparent; color: var(--lavigo-plum); }
+.link-block:hover .bold-text, .link-block-2:hover .bold-text { color: var(--lavigo-purple); }
+
+@media (max-width: 767px) {
+  .lavigo-cloud { width: 80vw !important; opacity: 0.45 !important; }
+  .lavigo-leaf { width: 7vw !important; }
+  .lavigo-birds { width: 40vw !important; }
+  .lavigo-suitcase { width: 70px; }
+  .lavigo-hero-cloud { width: 110vw; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .lavigo-cloud-drift, .lavigo-birds-fly, .lavigo-leaf-fall, .lavigo-leaf img, .lavigo-suitcase { animation: none; }
+  .lavigo-leaf { display: none; }
+}
+
+/* ---------- rail dividers between home sections (driven by assets/lavigo-rail.js) ---------- */
+.rail-divider {
+  position: relative;
+  width: 100%;
+  height: 96px;
+  overflow: hidden;                 /* never causes horizontal page scroll */
+  background: transparent url("theme/Rail_track/railway_track.png") repeat-x left bottom;
+  background-size: auto 18px;
+  pointer-events: none;
+}
+.rail-board {                       /* LAVIGO station sign standing beside the track */
+  position: absolute;
+  left: 50%;
+  bottom: 12px;
+  width: 116px;
+  height: auto;
+  max-width: none;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+.rail-train {
+  position: absolute;
+  left: 0;
+  bottom: 16px;                     /* wheels sit on the rail: 18px track minus the image's ~2px bottom padding */
+  width: 360px;
+  height: auto;
+  max-width: none;
+  transform: translate3d(-100%, 0, 0);
+  will-change: transform;
+  z-index: 2;                       /* train passes in front of the station sign */
+}
+@media (max-width: 767px) {
+  .rail-divider { height: 72px; background-size: auto 14px; }
+  .rail-board { width: 84px; bottom: 9px; }
+  .rail-train { width: 240px; bottom: 13px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .rail-train { left: 50%; transform: translate3d(-50%, 0, 0); }
+}
+
+/* ---------- trip facts, day photos & booking calculator ---------- */
+.lavigo-trip-facts { display: flex; flex-wrap: wrap; justify-content: center; gap: .75rem; margin: 1.25rem auto 0; }
+.lavigo-trip-facts span { background: #fff; border: 1px solid var(--lavigo-lavender); border-radius: 999px; padding: .45rem 1rem; font-size: .85rem; letter-spacing: .04em; color: var(--lavigo-plum); }
+.lavigo-trip-facts strong { color: var(--lavigo-purple); }
+.lavigo-card-meta { margin-top: .4rem; font-size: .8rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--lavigo-purple); }
+
+.rich-text figure.lavigo-day-photo { margin: 1rem 0 2.25rem; }
+.rich-text figure.lavigo-day-photo img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 16px; box-shadow: 0 1rem 2rem -1rem #2a214055; }
+
+.lavigo-booking { box-sizing: border-box; background: var(--light-gray); border-radius: var(--border-radius); padding: 1.5rem 1.4rem; min-width: 20.14vw; max-width: 20.14vw; margin: 0 auto; color: var(--lavigo-plum); }
+.lavigo-booking h5 { margin: 0 0 .25rem; text-align: center; letter-spacing: .12em; }
+.lb-price { text-align: center; font-size: .85rem; margin-bottom: 1rem; }
+.lb-price strong { display: block; font-size: 1.6rem; color: var(--lavigo-purple); }
+.lb-row { display: flex; align-items: center; justify-content: space-between; gap: .5rem; padding: .55rem 0; border-top: 1px solid #d5c4f780; font-size: .82rem; }
+.lb-row small { display: block; opacity: .7; font-size: .72rem; }
+.lb-stepper { display: flex; align-items: center; gap: .5rem; }
+.lb-stepper button { width: 28px; height: 28px; border-radius: 50%; border: 1px solid var(--lavigo-purple); background: #fff; color: var(--lavigo-purple); font-size: 1rem; line-height: 1; cursor: pointer; }
+.lb-stepper button:disabled { opacity: .35; cursor: default; }
+.lb-stepper output { min-width: 1.2rem; text-align: center; font-weight: 600; }
+.lb-date-label { display: block; font-size: .78rem; margin: .4rem 0 .9rem; }
+.lb-date { display: block; width: 100%; box-sizing: border-box; margin-top: .3rem; padding: .5rem .6rem; border: 1px solid var(--lavigo-lavender); border-radius: 8px; font: inherit; background: #fff; color: var(--lavigo-plum); }
+.lb-total { display: flex; justify-content: space-between; align-items: baseline; border-top: 2px solid var(--lavigo-lavender); margin-top: .4rem; padding-top: .8rem; font-weight: 600; }
+.lb-total-amount { font-size: 1.4rem; color: var(--lavigo-purple); }
+.lb-breakdown { font-size: .72rem; opacity: .75; margin: .3rem 0 1rem; line-height: 1.5; }
+.lb-whatsapp { display: flex; align-items: center; justify-content: center; gap: .5rem; width: 100%; box-sizing: border-box; padding: .8rem 1rem; border-radius: 999px; background: #25d366; color: #fff !important; font-weight: 700; font-size: .85rem; letter-spacing: .06em; text-decoration: none; }
+.lb-whatsapp:hover { background: #1ebe5a; }
+.lb-note { font-size: .7rem; opacity: .65; text-align: center; margin-top: .6rem; }
+@media (max-width: 991px) { .lavigo-booking { min-width: 18.13rem; max-width: 18.13rem; } }
+@media (max-width: 767px) { .lavigo-booking { min-width: 0; max-width: 100%; width: 100%; } }
+
+.lavigo-home-frame .blog-card-wrapper { margin-top: 2rem; }
+
+/* ---------- home card sliders (driven by assets/lavigo-carousel.js) ---------- */
+.blog-card-wrapper.lavigo-carousel {
+  display: flex !important;
+  flex-flow: row nowrap !important;
+  justify-content: flex-start !important;
+  align-items: stretch !important;
+  gap: 2rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding-left: .25rem;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  padding: .5rem .25rem 1.5rem;
+  margin-top: 2rem;
+  opacity: 1 !important;
+  transform: none !important;
+}
+.blog-card-wrapper.lavigo-carousel::-webkit-scrollbar { display: none; }
+.lavigo-carousel > .w-dyn-item { flex: 0 0 calc((100% - 4rem) / 3); scroll-snap-align: start; min-width: 0; }
+.lavigo-carousel .blog-link-block { display: block; width: 100%; }
+.lavigo-carousel .blog-image-wrapper { min-width: 100% !important; max-width: 100% !important; aspect-ratio: 4 / 3; }
+.lavigo-carousel .blog-text-wrapper { min-width: 100% !important; max-width: 100% !important; padding-top: 1.1rem; }
+.lavigo-carousel .blog-text-wrapper h4 { font-size: 1.35rem; line-height: 1.3; }
+.lavigo-carousel .blog-text-wrapper p { font-size: .9rem; line-height: 1.5; }
+.lavigo-carousel .blog-text-wrapper p:not(.lavigo-card-meta) { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+
+.lavigo-carousel-bar { display: flex; align-items: center; justify-content: center; gap: 1.25rem; margin: .5rem auto 0; }
+.lc-btn { width: 48px; height: 48px; border-radius: 50%; border: 1.5px solid var(--lavigo-purple); background: #fff; color: var(--lavigo-purple); font-size: 1.25rem; line-height: 1; cursor: pointer; transition: background .2s, color .2s, opacity .2s; }
+.lc-btn:hover:not(:disabled) { background: var(--lavigo-purple); color: #fff; }
+.lc-btn:disabled { opacity: .35; cursor: default; }
+.lc-viewall { font-weight: 600; letter-spacing: .06em; text-transform: uppercase; font-size: .85rem; color: var(--lavigo-purple); text-decoration: none; border-bottom: 1.5px solid currentColor; padding-bottom: 2px; }
+.lc-viewall:hover { color: var(--lavigo-purple-dark); }
+
+@media (max-width: 991px) {
+  .lavigo-carousel > .w-dyn-item { flex-basis: calc((100% - 2rem) / 2); }
+}
+@media (max-width: 767px) {
+  .blog-card-wrapper.lavigo-carousel { gap: 1rem; }
+  .lavigo-carousel > .w-dyn-item { flex-basis: 82%; }
+  .lc-btn { width: 40px; height: 40px; }
+  .lc-viewall { font-size: .75rem; }
+}
+
+
+/* ---- section frames: each content section sits on its own light "page" card
+   so long pages read as separate blocks instead of one endless white sheet */
+body > .section:not(:has(.footer-grid)),
+body > section:not([class]),
+.hide-section > .section {
+  width: auto;
+  margin: 1.5rem clamp(.4rem, 1.2vw, 1rem);
+  padding-block: 2rem;
+  background-color: #ffffffb8;
+  border: 1px solid #d5c4f78c;
+  border-radius: 28px;
+  box-shadow: 0 10px 30px -18px #4f359140, 0 1px 0 #fff inset;
+  position: relative;
+}
+/* every second frame gets a soft lavender tint for rhythm */
+body > .section:nth-child(even of .section):not(:has(.footer-grid)) {
+  background-color: #efe7fbc7;
+}
+/* small accent tab at the top of each frame */
+body > .section:not(:has(.footer-grid))::before,
+body > section:not([class])::before,
+.hide-section > .section::before {
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: 50%;
+  width: 64px;
+  height: 4px;
+  margin-left: -32px;
+  border-radius: 0 0 4px 4px;
+  background: var(--lavigo-purple);
+  opacity: .55;
+}
+@media screen and (max-width: 767px) {
+  body > .section:not(:has(.footer-grid)),
+  body > section:not([class]),
+  .hide-section > .section {
+    margin: 1rem .3rem;
+    padding-block: 1.25rem;
+    border-radius: 18px;
+  }
+}
+/* shorter frames for the "every bend" and "Himalayan Trips" blocks on the home page */
+body > .section.lavigo-compact { padding-block: .75rem; }
+.lavigo-compact .space-large { min-height: 3vw; }
+/* centre content inside frames: drop the leading spacer, keep equal padding top & bottom */
+body > .section:not(:has(.footer-grid)) > .w-container > :is(.space-large, .space-mid, .space):first-child,
+.hide-section > .section > .w-container > :is(.space-large, .space-mid, .space):first-child { display: none; }
+body > .section:not(:has(.footer-grid)),
+.hide-section > .section { padding-block: 3rem; }
+body > .section.lavigo-compact { padding-block: 1.75rem; }
+@media screen and (max-width: 767px) {
+  body > .section:not(:has(.footer-grid)),
+  .hide-section > .section { padding-block: 1.75rem; }
+  body > .section.lavigo-compact { padding-block: 1.25rem; }
+}
+body > .section:not(:has(.footer-grid)) > .w-container > :is(.space-large, .space-mid, .space):last-child,
+.hide-section > .section > .w-container > :is(.space-large, .space-mid, .space):last-child { display: none; }
+
+/* footer menu (HOME … LEGAL) sits a little lower under the contact card */
+.footer-grid + .space + .grid-12-columns { margin-top: 3rem; }
+@media screen and (max-width: 767px) {
+  .footer-grid + .space + .grid-12-columns { margin-top: 2rem; }
+}
